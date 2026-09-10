@@ -10,6 +10,17 @@ echo [Step 1] Installing dependencies...
 echo.
 call npm install
 
+if %errorlevel% neq 0 (
+    echo.
+    echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    echo ERROR during npm install!
+    echo Check the error message above.
+    echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    echo.
+    pause
+    exit /b
+)
+
 echo.
 echo ======================================
 echo [Step 2] Starting Server...
@@ -26,5 +37,13 @@ echo ======================================
 echo.
 
 node server.js
+
+if %errorlevel% neq 0 (
+    echo.
+    echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    echo ERROR starting server!
+    echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    echo.
+)
 
 pause
